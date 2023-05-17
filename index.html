@@ -22,12 +22,66 @@
     // Cria um componente chamado App
     // O componenente retorna JSX e por isso
     //o Babel irá transformar o mesmo
-    function App() {
-      return <div>Meu App</div>
+
+    const Produtos = () => {
+      const produto1 = 'Camisa';
+      const produto2 = 'Bermuda';
+
+      function handleClick(event) {
+        console.log(`Comprou ${event.target.innerText}`)
+      }
+
+      return (
+        <div>
+          <button onClick={handleClick}>
+            Comprar {produto1} - R$ {Math.round(Math.random() * 100)}
+          </button>
+          <button onClick={handleClick}>
+            Comprar {produto2} - R$ {Math.round(Math.random() * 20)}
+          </button>
+        </div>
+      )
+    }
+
+    const Compras = () => {
+      //useState é um Hook que define uma variáel reativa
+      const [count, setCount] = React.useState(0);
+
+      return (
+        <div>
+          <button onClick={() => setCount(count + 1)}>Comprar: {count}</button>
+          <p>Total: {count}</p>
+          <p>Preço: R$ {count * 250}</p>
+        </div>
+      )
+    }
+
+    const Button = () => {
+      return <button>Comprar</button>
+    }
+
+    const MainNav = () => {
+      return <nav>
+        <ul>
+          <li><a href='#'>Link 1</a></li>
+          <li><a href='#'>Link 2</a></li>
+        </ul>
+      </nav>
+    }
+
+    const App = () => {
+      return <div>
+        <h2>Meu App</h2>
+        <MainNav />
+        <Button />
+        <Produtos />
+        <Compras />
+      </div>
     }
 
     //Renderiza o componente App no elemento que tiver id = app
     ReactDOM.render(<App />, document.getElementById('app'));
+
   </script>
 </body>
 
