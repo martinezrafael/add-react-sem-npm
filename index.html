@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React (Sem NPM)</title>
+  <!-- Carrega o React, React Dom e Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- Precisa indicar para o Babel que ele deve transpilar o código -->
+  <script type="text/babel">
+    // Cria um componente chamado App
+    // O componenente retorna JSX e por isso
+    //o Babel irá transformar o mesmo
+    function App() {
+      return <div>Meu App</div>
+    }
+
+    //Renderiza o componente App no elemento que tiver id = app
+    ReactDOM.render(<App />, document.getElementById('app'));
+  </script>
+</body>
+
+</html>
